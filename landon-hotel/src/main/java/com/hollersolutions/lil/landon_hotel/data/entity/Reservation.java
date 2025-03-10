@@ -7,6 +7,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Entity
 @Table(name="reservations")
 @Data
@@ -24,6 +26,6 @@ public class Reservation {
     private int guestId;
 
     @Column(name="res_date")
-    private String resDate;
+    private Date resDate;
 
 }
