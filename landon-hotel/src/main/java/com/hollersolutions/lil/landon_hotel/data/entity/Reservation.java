@@ -20,10 +20,10 @@ public class Reservation {
     private long id;
 
     @Column(name="room_id")
-    private int roomId;
+    private long roomId;
 
     @Column(name="guest_id")
-    private int guestId;
+    private long guestId;
 
     @Column(name="res_date")
     private Date resDate;
