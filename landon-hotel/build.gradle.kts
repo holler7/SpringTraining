@@ -24,6 +24,7 @@ dependencies {
 	//implementation("com.h2database:h2")
 	implementation("org.postgresql:postgresql")
 	implementation("org.projectlombok:lombok")
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
 	annotationProcessor("org.projectlombok:lombok")
 	testAnnotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -43,7 +43,7 @@ public class RoomReservationService {
         rooms.forEach(room -> {
             RoomReservation roomReservation = new RoomReservation();
             roomReservation.setRoomId(room.getId());
-            roomReservation.setRoomName(room.getName());
+            roomReservation.setRoomName(room.getName() + "- Vacant");
             roomReservation.setRoomNumber(room.getRoomNumber());
             roomReservations.put(room.getId(), roomReservation);
         });
@@ -53,6 +53,10 @@ public class RoomReservationService {
             RoomReservation roomReservation = roomReservations.get(reservation.getRoomId());
             roomReservation.setReservationId(reservation.getId());
             roomReservation.setReservationDate(reservation.getResDate().toString());
+            if (reservation.getId() != 0) {
+                Optional<Room> room = this.roomRepository.findById(roomReservation.getRoomId());
+                roomReservation.setRoomName(room.get().getName());
+            }
             Optional<Guest> guest = this.guestRepository.findById(reservation.getGuestId());
             roomReservation.setGuestId(guest.get().getId());
             roomReservation.setFirstName(guest.get().getFirstName());
