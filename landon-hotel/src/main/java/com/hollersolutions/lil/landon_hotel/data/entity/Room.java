@@ -12,7 +12,9 @@ public class Room {
 
     @Id
     @Column(name="room_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+   // @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "room_seq")
+    @SequenceGenerator(name = "room_seq", sequenceName = "rooms_seq", allocationSize = 1)
     private long id;
 
     @Column(name="name")
